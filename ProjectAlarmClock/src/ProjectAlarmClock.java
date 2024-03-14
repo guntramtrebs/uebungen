@@ -13,24 +13,20 @@ public class ProjectAlarmClock extends JFrame {
     private JPanel panelMain;
     private JButton buttonPlay;
 
+    public void setProjectData(ProjectData projectData) {
+        this.projectData = projectData;
+    }
+
+    private ProjectData projectData;
     private final ProjectAlarmClock self = this;
 
     public ProjectAlarmClock() {
         buttonBackward.addActionListener(e -> {
-            textAreaTopic.setText("back");
+            textAreaTopic.setText(projectData.getPreviousSheet());
             self.pack();
         });
         buttonForward.addActionListener(e -> {
-            textAreaTopic.setText("""
-                    forward
-                    forward
-                    forward
-                    forward
-                    forward
-                    forward
-                    forward
-                    forward"""
-            );
+            textAreaTopic.setText(projectData.getNextSheet());
 
             self.pack();
         });
@@ -58,6 +54,7 @@ public class ProjectAlarmClock extends JFrame {
         btn.setOpaque(true);
 
     }
+
     public void init() {
         this.setContentPane(panelMain);
         this.textFieldClock.setBorder(null);
@@ -90,6 +87,8 @@ public class ProjectAlarmClock extends JFrame {
         buttonForward.setFocusable(false);
         buttonPlay.setFocusable(false);
         buttonBackward.setFocusable(false);
+
+        this.textAreaTopic.setText(projectData.getPreviousSheet());
         this.pack();
 
     }
