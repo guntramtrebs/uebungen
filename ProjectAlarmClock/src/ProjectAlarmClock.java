@@ -41,9 +41,17 @@ public class ProjectAlarmClock extends JFrame {
         buttonPlay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                textAreaTopic.setText("play");
+                projectData.startCountDown();
             }
         });
+    }
+
+    public void setClock(int timeInSeconds) {
+
+        int seconds = timeInSeconds%60;
+        int minutes = (timeInSeconds-seconds)/60;
+        textFieldClock.setText(        String.format("%02d:%02d", minutes, seconds));
+
     }
 
     private void formatButton(JButton btn) {

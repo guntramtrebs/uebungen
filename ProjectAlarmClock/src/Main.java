@@ -5,9 +5,15 @@ public class Main {
     public static void main(String[] args) {
 
         ProjectData projectData = new ProjectData();
+        ClockThread clockThread = new ClockThread();
+        clockThread.setProjectData(projectData);
 
         ProjectAlarmClock projectAlarmClock = new ProjectAlarmClock();
         projectAlarmClock.setProjectData(projectData);
+        clockThread.setProjectAlarmClock(projectAlarmClock);
+        projectData.setProjectAlarmClock(projectAlarmClock);
+
+        clockThread.start();
 
         projectAlarmClock.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
