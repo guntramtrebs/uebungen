@@ -26,3 +26,4 @@ und Geldstücke unter folgenden Annahmen berechnet:
 # Umsetzung
 - Java
 - IntelliJ Idea Projekt
+- Ausgabe
